@@ -30,4 +30,23 @@ public class LoginUnitTest {
         // ...then the result should be the expected one.
         assertThat(result, is(FAKE_STRING));
     }
+
+    @Test
+    public void checkUsernameIsValidEmail_validInput() {
+        LoginActivity testObj = new LoginActivity(mMockContext);
+
+        boolean result = testObj.validateUsername("kbaza065@uottawa.ca");
+
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void checkUsernameIsValidEmail_invalidInput() {
+        LoginActivity testObj = new LoginActivity(mMockContext);
+
+        boolean result = testObj.validateUsername("kbaza065@uottawa");
+
+        assertThat(result, is(false));
+
+    }
 }

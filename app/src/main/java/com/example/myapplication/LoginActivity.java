@@ -12,6 +12,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
     EditText userName;
     EditText password;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,5 +37,11 @@ public class LoginActivity extends AppCompatActivity {
             return "Login was successful";
         else
             return "Invalid login!";
+    }
+
+    public boolean validateUsername(String username) {
+        final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+        return username.trim().matches(emailPattern);
     }
 }
